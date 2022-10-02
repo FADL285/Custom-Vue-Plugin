@@ -4,4 +4,8 @@ import { toolTipPlugin } from "./toolTipPlugin";
 
 import "./assets/main.css";
 
-createApp(App).use(toolTipPlugin).mount("#app");
+createApp(App)
+  .use(toolTipPlugin, {
+    placement: "left",
+  })
+  .mount("#app");

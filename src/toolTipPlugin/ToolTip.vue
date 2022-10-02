@@ -8,10 +8,9 @@ const props = defineProps({
     type: String,
     required: true,
   },
-  placement: {
-    type: String,
-    required: false,
-    default: "top",
+  options: {
+    type: Object,
+    default: () => ({}),
   },
 });
 
@@ -26,7 +25,7 @@ function initTippy() {
   }
   tippyInstance = tippy(tooltip.value.parentNode, {
     content: props.text,
-    placement: props.placement,
+    ...props.options,
   });
 }
 
