@@ -7,10 +7,10 @@ const tooltipText = ref("Hello World");
   <h1>Custom Vue.js 3 Plugins</h1>
   <input class="my-2" type="text" v-model="tooltipText" /> <br />
   <span>
-    Hover Over Me
+    Hover Over Me, Lorem ipsum dolor sit amet.
     <ToolTip
       :text="tooltipText"
-      :options="{ placement: 'right', animation: 'fade' }"
+      :options="{ placement: 'top', animation: 'fade' }"
     />
   </span>
 
@@ -19,4 +19,8 @@ const tooltipText = ref("Hello World");
     And Me
     <ToolTip :text="tooltipText" />
   </span>
+
+  <br />
+
+  <button class="my-2" @click="$hideAllTooltips">Hide All tooltips</button>
 </template>
