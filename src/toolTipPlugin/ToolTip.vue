@@ -1,7 +1,8 @@
 <script setup>
-import { ref, onMounted, onUpdated, onUnmounted } from "vue";
+import { ref, inject, onMounted, onUpdated, onUnmounted } from "vue";
 import tippy from "tippy.js";
-import "tippy.js/dist/tippy.css"; // optional for styling
+import "tippy.js/dist/tippy.css"; // Base style
+import { tooltipOptionsInject } from "./index.js";
 
 const props = defineProps({
   text: {
@@ -24,6 +25,7 @@ function initTippy() {
     return;
   }
   tippyInstance = tippy(tooltip.value.parentNode, {
+    ...inject(tooltipOptionsInject),
     content: props.text,
     ...props.options,
   });

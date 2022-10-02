@@ -1,10 +1,9 @@
 import { defineAsyncComponent } from "vue";
 
-export function toolTipPlugin(app, options) {
-  if (options.placement) {
-    // Do Something...
-  }
+export const tooltipOptionsInject = Symbol();
 
+export function toolTipPlugin(app, options) {
+  app.provide(tooltipOptionsInject, options);
   app.component(
     "ToolTip",
     defineAsyncComponent(() => import("./ToolTip.vue"))
